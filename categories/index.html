@@ -27,7 +27,7 @@
 <meta property="og:site_name" content="fuos">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-07T11:21:55.000Z">
-<meta property="article:modified_time" content="2020-06-07T14:52:36.376Z">
+<meta property="article:modified_time" content="2020-06-07T15:21:43.638Z">
 <meta property="article:author" content="fuos">
 <meta name="twitter:card" content="summary">
     
@@ -225,12 +225,32 @@
         
 
         
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
 
 
         
 
     </article>
     
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果觉得文章对您有用，请打赏二两银子~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/my-blog/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
 
 </div>
 
@@ -317,7 +337,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/my-blog/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/my-blog/', SHARE: true, REWARD: true };
 
 
 </script>
