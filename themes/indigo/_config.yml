@@ -19,10 +19,10 @@ menu:
     text: Categories
     url: /categories
   github:
-    url: https://github.com/yscoder
+    url: https://github.com/fuos
     target: _blank
   weibo:
-    url: http://www.weibo.com/ysweb
+    url: https://www.weibo.com/SuperNPC
     target: _blank
   link:
     text: 测试
@@ -35,10 +35,10 @@ avatar_link: /
 # 头像背景图
 brand: /img/brand.jpg
 # favicon
-favicon: /favicon.ico
+favicon: /img/favicon.ico
 
 # email
-email: 634206017@qq.com
+email: zkkio@outlook.com
 
 # 设置 Android L Chrome 浏览器状态栏颜色
 color: '#3F51B5'
@@ -62,7 +62,7 @@ show_last_updated: true
 share: true
 
 # 是否开启打赏，关闭 reward: false
-reward:
+reward: 
   title: 谢谢大爷~
   wechat: /img/wechat.jpg     #微信，关闭设为 false
   alipay: /img/alipay.jpg     #支付宝，关闭设为 false
@@ -147,7 +147,7 @@ hyper_id: false
 canonical: false
 
 # 版权起始年份
-since_year: 2015
+since_year: 2020
 
 # 用户页面中作者相关的描述性文字，如不需要设为 false
 about: 用户页面中作者相关的描述性文字，如不需要设为 false
