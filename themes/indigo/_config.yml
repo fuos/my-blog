@@ -117,11 +117,14 @@ gitment: false
 #   client_secret:
 
 # use gitalk://github.com/gitalk/gitalk
-gitalk: false
-#  owner: 
-#  repo: 
-#  client_id: 
-#  client_secret: 
+gitalk: 
+  enable: true
+  owner: fuos
+  repo: my-blog
+  client_id: e565ffa137248f19fe25
+  client_secret: a449b4aa974f12d27bdf3ccd4c7bcab87fd51ff5
+  admin: admins
+  distractionFreeMode: false
 
 # Valine Comment system. https://valine.js.org
 valine:
