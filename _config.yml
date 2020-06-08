@@ -122,8 +122,7 @@ jsonContent:
     permalink: false
     excerpt: false
     categories: false
-    tags: false
-    author: false
+    tags: true
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
