@@ -12,7 +12,7 @@ toc: true
 
 ### 搭建步骤
 
->>环境：Windows 10
+>环境：Windows 10
 
 #### 1.本地安装Node.js，Git
 
