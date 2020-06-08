@@ -6,7 +6,7 @@
   <link href="/my-blog/atom.xml" rel="self"/>
   
   <link href="https://fuos.github.io/my-blog/"/>
-  <updated>2020-06-08T11:34:26.607Z</updated>
+  <updated>2020-06-08T14:34:40.856Z</updated>
   <id>https://fuos.github.io/my-blog/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Hello World</title>
     <link href="https://fuos.github.io/my-blog/2020/06/08/hello-world/"/>
     <id>https://fuos.github.io/my-blog/2020/06/08/hello-world/</id>
-    <published>2020-06-08T11:34:26.607Z</published>
-    <updated>2020-06-08T11:34:26.607Z</updated>
+    <published>2020-06-08T14:34:40.856Z</published>
+    <updated>2020-06-08T14:34:40.856Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -39,11 +39,35 @@
   </entry>
   
   <entry>
+    <title>GitHub Pages+Hexo+Travis CI-自动化构建的静态博客</title>
+    <link href="https://fuos.github.io/my-blog/2020/06/08/GitHub%20Pages+Hexo+Travis%20CI-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://fuos.github.io/my-blog/2020/06/08/GitHub%20Pages+Hexo+Travis%20CI-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</id>
+    <published>2020-06-08T13:22:55.000Z</published>
+    <updated>2020-06-08T14:34:41.096Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="博客说明"><a href="#博客说明" class="headerlink" title="博客说明"></a>博客说明</h3><p>本博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。<br>博客源码放在master分支，编译生成的静态文件放在gh-pages分支。每次写完文章后push到master上，Travis CI会自动编译出静态文件并部署到gh-pages分支，通过博客左侧 build status可以看到每次构建的过程。</p><h3 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h3><blockquote><blockquote><p>环境：Windows 10</p></blockquote></blockquote><h4 id="1-本地安装Node-js，Git"><a href="#1-本地安装Node-js，Git" class="headerlink" title="1.本地安装Node.js，Git"></a>1.本地安装Node.js，Git</h4><h4 id="2-在GitHub新建repository"><a href="#2-在GitHub新建repository" class="headerlink" title="2.在GitHub新建repository"></a>2.在GitHub新建repository</h4><p>这里有两种创建方式，对应的GitHub pages地址也不一样：<br>1.仓库名为fuos.github.io<br>Hexo生成的静态博客文件需要放在master分支，博客地址为 fuos.github.io<br>2.仓库名为my-blog或者其他任意名称（本博客采用这种方式）<br>Hexo生成的静态文件需要放在gh-pages分支，博客地址为 fuos.github.io/my-blog</p><h4 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure><h4 id="4-安装theme"><a href="#4-安装theme" class="headerlink" title="4.安装theme"></a>4.安装theme</h4><p>本博客选择 indigo 作为主题，并对其中部分内容根据需要做了修改。具体安装和配置请参考官方文档：<a href="https://github.com/yscoder/hexo-theme-indigo/wiki" target="_blank" rel="noopener">文档 | Document</a></p><h4 id="5-推送分支"><a href="#5-推送分支" class="headerlink" title="5.推送分支"></a>5.推送分支</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;博客说明&quot;&gt;&lt;a href=&quot;#博客说明&quot; class=&quot;headerlink&quot; title=&quot;博客说明&quot;&gt;&lt;/a&gt;博客说明&lt;/h3&gt;&lt;p&gt;本博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。&lt;br&gt;博客源码放在ma
+      
+    
+    </summary>
+    
+    
+    
+      <category term="博客" scheme="https://fuos.github.io/my-blog/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>My First Post - Test</title>
     <link href="https://fuos.github.io/my-blog/2020/06/07/My-First-Post-Test/"/>
     <id>https://fuos.github.io/my-blog/2020/06/07/My-First-Post-Test/</id>
     <published>2020-06-07T11:10:45.000Z</published>
-    <updated>2020-06-08T11:34:26.607Z</updated>
+    <updated>2020-06-08T14:34:40.856Z</updated>
     
     <content type="html"><![CDATA[<h2 id="测试，推送第一篇文章。"><a href="#测试，推送第一篇文章。" class="headerlink" title="测试，推送第一篇文章。"></a>测试，推送第一篇文章。</h2><h3 id="Markdown-是什么？"><a href="#Markdown-是什么？" class="headerlink" title="Markdown 是什么？"></a>Markdown 是什么？</h3><p>Markdown 是一种轻量级的「标记语言」，创始人为约翰·格鲁伯，用简洁的语法代替排版，目前被越来越多的知识工作者、写作爱好者、程序员或研究员广泛使用。其常用的标记符号不超过十个，相对于更为复杂的 HTML 标记语言来说，Markdown 十分的轻量，学习成本也不需要太多，且一旦熟悉这种语法规则，会有沉浸式编辑的效果。</p><h3 id="印象笔记里-Markdown-有什么特点？"><a href="#印象笔记里-Markdown-有什么特点？" class="headerlink" title="印象笔记里 Markdown 有什么特点？"></a>印象笔记里 Markdown 有什么特点？</h3><h4 id="插入表格"><a href="#插入表格" class="headerlink" title="插入表格"></a>插入表格</h4><table><thead><tr><th>帐户类型</th><th>免费帐户</th><th>标准帐户</th><th>高级帐户</th></tr></thead><tbody><tr><td>帐户流量</td><td>60M</td><td>1GB</td><td>10GB</td></tr><tr><td>设备数目</td><td>2台</td><td>无限制</td><td>无限制</td></tr><tr><td>当前价格</td><td>免费</td><td>￥8.17/月</td><td>￥12.33/月</td></tr></tbody></table><h4 id="插入行内代码或代码块"><a href="#插入行内代码或代码块" class="headerlink" title="插入行内代码或代码块"></a>插入行内代码或代码块</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># A comment</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure><h4 id="添加待办事项"><a href="#添加待办事项" class="headerlink" title="添加待办事项"></a>添加待办事项</h4><p>三只青蛙</p><ul><li><input checked="" disabled="" type="checkbox"> 第一只青蛙</li><li><input disabled="" type="checkbox"> 第二只青蛙</li><li><input disabled="" type="checkbox"> 第三只青蛙</li></ul><h4 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h4><p>copy from <a href="https://www.yinxiang.com/" target="_blank" rel="noopener">印象笔记官网</a></p>]]></content>
     
