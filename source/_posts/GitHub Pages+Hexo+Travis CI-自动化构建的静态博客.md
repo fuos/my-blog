@@ -47,7 +47,7 @@ $ npm install
 
 本博客选择 indigo 作为主题，并对其中部分内容根据需要做了修改。具体安装和配置请参考官方文档：[文档 | Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
 
-这里主要修改了两个地方：
+这里主要修改了三个地方：
 
 ①.page-about-me跳转地址
 
@@ -70,6 +70,21 @@ gitalk:
   client_id: 'GitHub Application Client ID'
   client_secret: 'GitHub Application Client Secret'
   distractionFreeMode: false
+```
+③.优化文章永久链接
+进入my-blog安装插件：
+```bash
+npm install hexo-abbrlink --save
+```
+修改_config.yml下permalink信息：
+```bash
+# permalink: :year/:month/:day/:title/
+# permalink_defaults:
+permalink: posts/:abbrlink.html
+# abbrlink config
+abbrlink:
+  alg: crc32  #support crc16(default) and crc32
+  rep: hex    #support dec(default) and hex
 ```
 
 #### 5.推送分支
@@ -112,7 +127,7 @@ deploy:
   local-dir: public
 ```
 
-③.修改my-blog下_config.yml中deploy部分：
+③.修改my-blog下_config.yml中deploy部分
 
 ```yaml
 deploy:
