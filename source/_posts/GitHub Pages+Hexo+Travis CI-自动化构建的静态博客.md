@@ -79,7 +79,7 @@ gitalk:
 进入my-blog安装插件：
 
 ```bash
-npm install hexo-abbrlink --save
+$ npm install hexo-abbrlink --save
 ```
 
 修改_config.yml下permalink信息：
