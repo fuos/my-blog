@@ -1,12 +1,18 @@
 sudo: false
 language: node_js
-node_js:
-  - 12
-cache: npm
+node_js: stable
+cache:
+  directories:
+  - node_modules
 branches:
   only:
     - master # build master branch only
+before_install:
+  - npm install -g hexo-cli
+install:
+  - npm install # 安装依赖
 script:
+  - hexo clean
   - hexo generate
 deploy:
   provider: pages
