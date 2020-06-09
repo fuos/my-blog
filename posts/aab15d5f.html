@@ -29,7 +29,7 @@
 <meta property="og:description" content="博客说明📝 博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。 博客源码放在master分支，编译生成的静态文件放在gh-pages分支。 每次写完文章后push到master上，Travis CI会自动编译出静态文件并部署到gh-pages分支。 因为有Travis CI帮助生成和部署，所以可以在Github上直接编辑文章了。 通过本博客左侧 b">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-08T13:22:55.000Z">
-<meta property="article:modified_time" content="2020-06-09T18:28:53.860Z">
+<meta property="article:modified_time" content="2020-06-09T18:36:48.222Z">
 <meta property="article:author" content="fuos">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Travis CI">
@@ -229,7 +229,7 @@
 
 <p>③优化文章永久链接</p>
 <p>进入my-blog安装插件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
 
 <p>修改_config.yml下permalink信息：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="comment"># permalink_defaults:</span></span><br><span class="line">permalink: posts/:abbrlink.html</span><br><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  rep: hex    <span class="comment">#support dec(default) and hex</span></span><br></pre></td></tr></table></figure>
@@ -260,7 +260,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-09T18:28:53.860Z" itemprop="dateUpdated">2020-06-10 02:28:53</time>
+    最后更新时间：<time datetime="2020-06-09T18:36:48.222Z" itemprop="dateUpdated">2020-06-10 02:36:48</time>
 </span><br>
 
 
