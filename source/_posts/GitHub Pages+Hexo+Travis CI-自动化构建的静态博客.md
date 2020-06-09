@@ -1,9 +1,12 @@
 ---
 title: GitHub Pages+Hexo+Travis CI-自动化构建的静态博客
-date: 2020-06-08 21:22:55
-tags: [Hexo,Travis CI]
+tags:
+  - Hexo
+  - Travis CI
 categories: 博客
 toc: true
+abbrlink: aab15d5f
+date: 2020-06-08 21:22:55
 ---
 
 ### 博客说明

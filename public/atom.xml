@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>fuos</title>
+  <icon>https://fuos.github.io/my-blog/icon.png</icon>
+  <subtitle>开发小笔记</subtitle>
+  <link href="/my-blog/atom.xml" rel="self"/>
+  
+  <link href="https://fuos.github.io/my-blog/"/>
+  <updated>2020-06-09T13:17:34.185Z</updated>
+  <id>https://fuos.github.io/my-blog/</id>
+  
+  <author>
+    <name>fuos</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub Pages+Hexo+Travis CI-自动化构建的静态博客</title>
+    <link href="https://fuos.github.io/my-blog/posts/aab15d5f.html"/>
+    <id>https://fuos.github.io/my-blog/posts/aab15d5f.html</id>
+    <published>2020-06-08T13:22:55.000Z</published>
+    <updated>2020-06-09T13:17:34.185Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;博客说明&quot;&gt;&lt;a href=&quot;#博客说明&quot; class=&quot;headerlink&quot; title=&quot;博客说明&quot;&gt;&lt;/a&gt;博客说明&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis
+        
+      
+    
+    </summary>
+    
+    
+      <category term="博客" scheme="https://fuos.github.io/my-blog/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="Hexo" scheme="https://fuos.github.io/my-blog/tags/Hexo/"/>
+    
+      <category term="Travis CI" scheme="https://fuos.github.io/my-blog/tags/Travis-CI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My First Post - Test</title>
+    <link href="https://fuos.github.io/my-blog/posts/667634fc.html"/>
+    <id>https://fuos.github.io/my-blog/posts/667634fc.html</id>
+    <published>2020-06-07T11:10:45.000Z</published>
+    <updated>2020-06-08T12:58:14.992Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;测试，推送第一篇文章。&quot;&gt;&lt;a href=&quot;#测试，推送第一篇文章。&quot; class=&quot;headerlink&quot; title=&quot;测试，推送第一篇文章。&quot;&gt;&lt;/a&gt;测试，推送第一篇文章。&lt;/h2&gt;&lt;h3 id=&quot;Markdown-是什么？&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Hexo" scheme="https://fuos.github.io/my-blog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://fuos.github.io/my-blog/posts/undefined.html"/>
+    <id>https://fuos.github.io/my-blog/posts/undefined.html</id>
+    <published>2020-06-07T04:11:47.061Z</published>
+    <updated>2020-06-07T04:11:47.061Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
