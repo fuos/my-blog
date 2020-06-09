@@ -9,7 +9,7 @@ abbrlink: aab15d5f
 date: 2020-06-08 21:22:55
 ---
 
-### 博客说明
+### 博客说明📌
 
 1. 博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。
 2. 博客源码放在master分支，编译生成的静态文件放在gh-pages分支。
@@ -17,7 +17,7 @@ date: 2020-06-08 21:22:55
 4. 因为有Travis CI帮助生成和部署，所以可以在Github上直接编辑文章了。
 5. 通过本博客左侧 build status链接可以看到每次构建的过程。
 
-### 搭建步骤
+### 搭建步骤🎨
 
 >环境：Windows 10
 
@@ -26,10 +26,10 @@ date: 2020-06-08 21:22:55
 #### 2.在GitHub新建repository
 
 这里有两种创建方式，对应的GitHub pages地址也不一样：
-①.仓库名为fuos.github.io（GitHub pages）
+①仓库名为fuos.github.io（`GitHub pages`）
 Hexo生成的静态博客文件需要放在master分支，博客地址为 fuos.github.io
 
-②.仓库名为my-blog或者其他任意名称（Project pages，本博客采用这种方式）
+②仓库名为my-blog或者其他任意名称（`Project pages`，本博客采用这种方式）
 Hexo生成的静态文件需要放在gh-pages分支，博客地址为 fuos.github.io/my-blog
 
 #### 3.安装Hexo
@@ -49,15 +49,15 @@ $ npm install
 
 这里主要修改了两个地方：
 
-①.page-about-me跳转地址
+①page-about-me跳转地址
 
-由于我创建的仓库是第二种，所以需要做相应的修改（第二行为修改后）
+由于我创建的仓库是第二种，所以需要对`themes/indigo/layout/page.ejs`做相应的修改（第二行为修改后）
 
 ```javascript
 <a href="/" class="avatar waves-effect waves-circle waves-light"><%- image_tag(theme.avatar) %></a>
 <a href="<%- config.url %>" class="avatar waves-effect waves-circle waves-light"><%- image_tag(theme.avatar) %></a>
 ```
-②.启用gitalk评论插件
+②启用gitalk评论插件
 
 owner为github account，repo为刚才创建的用于存放博客的repository，GitHub Application在 Settings -> Developer settings -> OAuth Apps申请
 
@@ -88,8 +88,8 @@ git push -u origin master
 
 #### 6.使用 Travis CI 构建和部署
 
-①.使用GitHub账号登陆[Travis CI](https://travis-ci.org/)，在github中创建access token，在Travis CI你的repository页面Environment Variables新建环境变量，name为GH_TOKEN，Value 为刚才你在 GitHub 生成的 Token
-②.在my-blog下新建.travis.yml文件，添加下面的内容：
+①使用GitHub账号登陆[Travis CI](https://travis-ci.org/)，在github中创建access token，在Travis CI你的repository页面Environment Variables新建环境变量，name为GH_TOKEN，Value 为刚才你在 GitHub 生成的 Token
+②在my-blog下新建.travis.yml文件，添加下面的内容：
 
 ```yaml
 sudo: false
@@ -112,7 +112,7 @@ deploy:
   local-dir: public
 ```
 
-③.修改my-blog下_config.yml中deploy部分：
+③修改my-blog下_config.yml中deploy部分
 
 ```yaml
 deploy:
@@ -123,7 +123,7 @@ deploy:
   branch: gh-pages
 ```
 
-④.将修改推送到远端master
+④将修改推送到远端master
 
 ```bash
 git add .
