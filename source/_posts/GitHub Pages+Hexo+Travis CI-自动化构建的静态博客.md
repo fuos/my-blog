@@ -9,7 +9,7 @@ abbrlink: aab15d5f
 date: 2020-06-08 21:22:55
 ---
 
-### 博客说明📌
+### 博客说明📝
 
 1. 博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。
 2. 博客源码放在master分支，编译生成的静态文件放在gh-pages分支。
@@ -17,7 +17,7 @@ date: 2020-06-08 21:22:55
 4. 因为有Travis CI帮助生成和部署，所以可以在Github上直接编辑文章了。
 5. 通过本博客左侧 build status链接可以看到每次构建的过程。
 
-### 搭建步骤🎨
+### 搭建步骤📐
 
 >环境：Windows 10
 
@@ -26,6 +26,7 @@ date: 2020-06-08 21:22:55
 #### 2.在GitHub新建repository
 
 这里有两种创建方式，对应的GitHub pages地址也不一样：
+
 ①仓库名为fuos.github.io（`GitHub pages`）
 Hexo生成的静态博客文件需要放在master分支，博客地址为 fuos.github.io
 
@@ -43,11 +44,11 @@ $ cd <folder>
 $ npm install
 ```
 
-#### 4.安装theme
+#### 4.安装theme🎨
 
 本博客选择 indigo 作为主题，并对其中部分内容根据需要做了修改。具体安装和配置请参考官方文档：[文档 | Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
 
-这里主要修改了两个地方：
+这里主要修改了三个地方：
 
 ①page-about-me跳转地址
 
@@ -57,6 +58,7 @@ $ npm install
 <a href="/" class="avatar waves-effect waves-circle waves-light"><%- image_tag(theme.avatar) %></a>
 <a href="<%- config.url %>" class="avatar waves-effect waves-circle waves-light"><%- image_tag(theme.avatar) %></a>
 ```
+
 ②启用gitalk评论插件
 
 owner为github account，repo为刚才创建的用于存放博客的repository，GitHub Application在 Settings -> Developer settings -> OAuth Apps申请
@@ -72,6 +74,25 @@ gitalk:
   distractionFreeMode: false
 ```
 
+③优化文章永久链接
+
+进入my-blog安装插件：
+
+```bash
+npm install hexo-abbrlink --save
+```
+
+修改_config.yml下permalink信息：
+
+```bash
+# permalink: :year/:month/:day/:title/
+# permalink_defaults:
+permalink: posts/:abbrlink.html
+# abbrlink config
+abbrlink:
+  alg: crc32  #support crc16(default) and crc32
+  rep: hex    #support dec(default) and hex
+```
 #### 5.推送分支
 
 这里将本地博客源文件推送到了master分支
@@ -89,6 +110,7 @@ git push -u origin master
 #### 6.使用 Travis CI 构建和部署
 
 ①使用GitHub账号登陆[Travis CI](https://travis-ci.org/)，在github中创建access token，在Travis CI你的repository页面Environment Variables新建环境变量，name为GH_TOKEN，Value 为刚才你在 GitHub 生成的 Token
+
 ②在my-blog下新建.travis.yml文件，添加下面的内容：
 
 ```yaml
@@ -144,9 +166,9 @@ git commit -am"add test post"
 git push
 ```
 
-博客源码：https://github.com/fuos/my-blog
+💾博客源码：https://github.com/fuos/my-blog
 
-Travis CI：https://travis-ci.org/github/fuos/my-blog
+⚙Travis CI：https://travis-ci.org/github/fuos/my-blog
 
 
 
