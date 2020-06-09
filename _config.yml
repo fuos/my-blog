@@ -76,6 +76,7 @@ tag_map:
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
 
+# hexo-generator-feed
 feed:
   type: atom
   path: atom.xml
@@ -89,7 +90,7 @@ feed:
   autodiscovery: true
   template:
 
-# exemple
+# hexo-generator-json-content
 jsonContent:
   meta: false
   pages: false
@@ -98,6 +99,7 @@ jsonContent:
     date: true
     path: true
     text: true
+    tags: true
     raw: false
     content: false
     slug: false
@@ -107,7 +109,6 @@ jsonContent:
     permalink: false
     excerpt: false
     categories: false
-    tags: true
     author: false
 
 # Date / Time format
