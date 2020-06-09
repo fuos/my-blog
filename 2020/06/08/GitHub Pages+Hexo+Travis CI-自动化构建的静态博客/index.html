@@ -20,18 +20,19 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="博客">
-    <meta name="description" content="博客说明本博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。博客源码放在master分支，编译生成的静态文件放在gh-pages分支。每次写完文章后push到master上，Travis CI会自动编译出静态文件并部署到gh-pages分支，通过博客左侧 build status可以看到每次构建的过程。 搭建步骤 环境：Windows 10  1.本">
+    <meta name="keywords" content="Hexo,Travis CI">
+    <meta name="description" content="博客说明 博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。 博客源码放在master分支，编译生成的静态文件放在gh-pages分支。 每次写完文章后push到master上，Travis CI会自动编译出静态文件并部署到gh-pages分支。 因为有Travis CI帮助生成和部署，所以可以在Github上直接编辑文章了。 通过本博客左侧 bui">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub Pages+Hexo+Travis CI-自动化构建的静态博客">
 <meta property="og:url" content="https://fuos.github.io/my-blog/2020/06/08/GitHub%20Pages+Hexo+Travis%20CI-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="fuos">
-<meta property="og:description" content="博客说明本博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。博客源码放在master分支，编译生成的静态文件放在gh-pages分支。每次写完文章后push到master上，Travis CI会自动编译出静态文件并部署到gh-pages分支，通过博客左侧 build status可以看到每次构建的过程。 搭建步骤 环境：Windows 10  1.本">
+<meta property="og:description" content="博客说明 博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。 博客源码放在master分支，编译生成的静态文件放在gh-pages分支。 每次写完文章后push到master上，Travis CI会自动编译出静态文件并部署到gh-pages分支。 因为有Travis CI帮助生成和部署，所以可以在Github上直接编辑文章了。 通过本博客左侧 bui">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-08T13:22:55.000Z">
-<meta property="article:modified_time" content="2020-06-09T03:38:59.780Z">
+<meta property="article:modified_time" content="2020-06-09T06:55:57.980Z">
 <meta property="article:author" content="fuos">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Travis CI">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" type="application/atom+xml" title="fuos" href="/my-blog/atom.xml">
@@ -157,6 +158,8 @@
 </time>
 
 
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/my-blog/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul>
+
             
         </h5>
     </div>
@@ -172,7 +175,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#博客说明"><span class="post-toc-number">1.</span> <span class="post-toc-text">博客说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">搭建步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-本地安装Node-js，Git"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.本地安装Node.js，Git</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-在GitHub新建repository"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.在GitHub新建repository</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-安装Hexo"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3.安装Hexo</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-安装theme"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4.安装theme</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-推送分支"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5.推送分支</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#博客说明"><span class="post-toc-number">1.</span> <span class="post-toc-text">博客说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">搭建步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-本地安装Node-js，Git"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.本地安装Node.js，Git</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-在GitHub新建repository"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.在GitHub新建repository</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-安装Hexo"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3.安装Hexo</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-安装theme"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4.安装theme</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-推送分支"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5.推送分支</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-使用-Travis-CI-构建和部署"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">6.使用 Travis CI 构建和部署</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -186,6 +189,8 @@
             <time class="post-time" title="2020-06-08 21:22:55" datetime="2020-06-08T13:22:55.000Z"  itemprop="datePublished">2020-06-08</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/my-blog/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li></ul>
+
 
 
             
@@ -196,15 +201,49 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="博客说明"><a href="#博客说明" class="headerlink" title="博客说明"></a>博客说明</h3><p>本博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。<br>博客源码放在master分支，编译生成的静态文件放在gh-pages分支。每次写完文章后push到master上，Travis CI会自动编译出静态文件并部署到gh-pages分支，通过博客左侧 build status可以看到每次构建的过程。</p>
+            <h3 id="博客说明"><a href="#博客说明" class="headerlink" title="博客说明"></a>博客说明</h3><ol>
+<li>博客托管于GitHub Pages，使用Hexo作为博客框架，使用Travis CI完成自动构建。</li>
+<li>博客源码放在master分支，编译生成的静态文件放在gh-pages分支。</li>
+<li>每次写完文章后push到master上，Travis CI会自动编译出静态文件并部署到gh-pages分支。</li>
+<li>因为有Travis CI帮助生成和部署，所以可以在Github上直接编辑文章了。</li>
+<li>通过本博客左侧 build status链接可以看到每次构建的过程。</li>
+</ol>
 <h3 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h3><blockquote>
 <p>环境：Windows 10</p>
 </blockquote>
-<h4 id="1-本地安装Node-js，Git"><a href="#1-本地安装Node-js，Git" class="headerlink" title="1.本地安装Node.js，Git"></a>1.本地安装Node.js，Git</h4><h4 id="2-在GitHub新建repository"><a href="#2-在GitHub新建repository" class="headerlink" title="2.在GitHub新建repository"></a>2.在GitHub新建repository</h4><p>这里有两种创建方式，对应的GitHub pages地址也不一样：<br>1.仓库名为fuos.github.io<br>Hexo生成的静态博客文件需要放在master分支，博客地址为 fuos.github.io<br>2.仓库名为my-blog或者其他任意名称（本博客采用这种方式）<br>Hexo生成的静态文件需要放在gh-pages分支，博客地址为 fuos.github.io/my-blog</p>
-<h4 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<h4 id="1-本地安装Node-js，Git"><a href="#1-本地安装Node-js，Git" class="headerlink" title="1.本地安装Node.js，Git"></a>1.本地安装Node.js，Git</h4><h4 id="2-在GitHub新建repository"><a href="#2-在GitHub新建repository" class="headerlink" title="2.在GitHub新建repository"></a>2.在GitHub新建repository</h4><p>这里有两种创建方式，对应的GitHub pages地址也不一样：<br>①.仓库名为fuos.github.io（GitHub pages）<br>Hexo生成的静态博客文件需要放在master分支，博客地址为 fuos.github.io</p>
+<p>②.仓库名为my-blog或者其他任意名称（Project pages，本博客采用这种方式）<br>Hexo生成的静态文件需要放在gh-pages分支，博客地址为 fuos.github.io/my-blog</p>
+<h4 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h4><p>本地安装和初始化Hexo，<folder>为任意名称，如my-blog：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
 
 <h4 id="4-安装theme"><a href="#4-安装theme" class="headerlink" title="4.安装theme"></a>4.安装theme</h4><p>本博客选择 indigo 作为主题，并对其中部分内容根据需要做了修改。具体安装和配置请参考官方文档：<a href="https://github.com/yscoder/hexo-theme-indigo/wiki" target="_blank" rel="noopener">文档 | Document</a></p>
-<h4 id="5-推送分支"><a href="#5-推送分支" class="headerlink" title="5.推送分支"></a>5.推送分支</h4>
+<p>这里主要修改了两个地方：</p>
+<p>①.page-about-me跳转地址</p>
+<p>由于我创建的仓库是第二种，所以需要做相应的修改（第二行为修改后）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"/"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"avatar waves-effect waves-circle waves-light"</span>&gt;&lt;%- image_tag(theme.avatar) %&gt;&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;a href="&lt;%- config.url %&gt;" class="avatar waves-effect waves-circle waves-light"&gt;&lt;%- image_tag(theme.avatar) %&gt;&lt;/</span>a&gt;</span><br></pre></td></tr></table></figure>
+<p>②.启用gitalk评论插件</p>
+<p>owner为github account，repo为刚才创建的用于存放博客的repository，GitHub Application在 Settings -&gt; Developer settings -&gt; OAuth Apps申请</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># use gitalk://github.com/gitalk/gitalk</span></span><br><span class="line"><span class="attr">gitalk:</span> </span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">owner:</span> <span class="string">fuos</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">my-blog</span></span><br><span class="line">  <span class="attr">client_id:</span> <span class="string">'GitHub Application Client ID'</span></span><br><span class="line">  <span class="attr">client_secret:</span> <span class="string">'GitHub Application Client Secret'</span></span><br><span class="line">  <span class="attr">distractionFreeMode:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-推送分支"><a href="#5-推送分支" class="headerlink" title="5.推送分支"></a>5.推送分支</h4><p>这里将本地博客源文件推送到了master分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-blog </span><br><span class="line">git init </span><br><span class="line">git remote add origin git@github.com:fuos/my-blog.git</span><br><span class="line">git add . </span><br><span class="line">git commit -am <span class="string">"init blog"</span> </span><br><span class="line"><span class="comment"># 推送到master</span></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-使用-Travis-CI-构建和部署"><a href="#6-使用-Travis-CI-构建和部署" class="headerlink" title="6.使用 Travis CI 构建和部署"></a>6.使用 Travis CI 构建和部署</h4><p>①.使用GitHub账号登陆<a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a>，在github中创建access token，在Travis CI你的repository页面Environment Variables新建环境变量，name为GH_TOKEN，Value 为刚才你在 GitHub 生成的 Token<br>②.在my-blog下新建.travis.yml文件，添加下面的内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">10</span> <span class="comment"># use nodejs v10 LTS</span></span><br><span class="line"><span class="attr">cache:</span> <span class="string">npm</span></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">master</span> <span class="comment"># build master branch only</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span> <span class="string">generate</span> <span class="comment"># generate static files</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">provider:</span> <span class="string">pages</span></span><br><span class="line">  <span class="attr">skip-cleanup:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">github-token:</span> <span class="string">$GH_TOKEN</span></span><br><span class="line">  <span class="attr">keep-history:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">on:</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">local-dir:</span> <span class="string">public</span></span><br></pre></td></tr></table></figure>
+
+<p>③.修改my-blog下_config.yml中deploy部分：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="comment"># repo: https://github.com/&lt;username&gt;/&lt;project&gt;</span></span><br><span class="line">  <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span></span><br><span class="line">  <span class="comment"># Hexo静态文件默认推送到gh-pages分支</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
+
+<p>④.将修改推送到远端master</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"add travis ci"</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>这样配置之后，Hexo已经能够自动构建和部署了，可以到travis-ci中看到<a href="https://travis-ci.org/github/fuos/my-blog/jobs/696306109" target="_blank" rel="noopener">Job log</a></p>
+<p>之后写文章时可以按照下面的步骤新建和提交， Travis CI 会将Hexo生成的静态文件自动部署到gh-pages分支。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-blog </span><br><span class="line">git checkout master </span><br><span class="line">hexo new <span class="string">"My First Post - Test"</span> </span><br><span class="line">git add . </span><br><span class="line">git commit -am<span class="string">"add test post"</span> </span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>博客源码：<a href="https://github.com/fuos/my-blog" target="_blank" rel="noopener">https://github.com/fuos/my-blog</a></p>
+<p>Travis CI：<a href="https://travis-ci.org/github/fuos/my-blog" target="_blank" rel="noopener">https://travis-ci.org/github/fuos/my-blog</a></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -212,7 +251,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-09T03:38:59.780Z" itemprop="dateUpdated">2020-06-09 11:38:59</time>
+    最后更新时间：<time datetime="2020-06-09T06:55:57.980Z" itemprop="dateUpdated">2020-06-09 14:55:57</time>
 </span><br>
 
 
@@ -238,7 +277,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/my-blog/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/my-blog/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/my-blog/tags/Travis-CI/" rel="tag">Travis CI</a></li></ul>
 
 
             
