@@ -66,12 +66,10 @@ owner为github account，repo为刚才创建的用于存放博客的repository�
 ```yaml
 # use gitalk://github.com/gitalk/gitalk
 gitalk: 
-  enable: true
   owner: fuos
   repo: my-blog
   client_id: 'GitHub Application Client ID'
   client_secret: 'GitHub Application Client Secret'
-  distractionFreeMode: false
 ```
 
 ③优化文章永久链接
