@@ -10,6 +10,8 @@ branches:
     - master # build master branch only
 before_install:
   - npm install -g hexo-cli
+  # Restore last modified time
+  - "git ls-files -z | while read -d '' path; do touch -d \"$(git log -1 --format=\"@%ct\" \"$path\")\" \"$path\"; done"
 install:
   - npm install # 安装依赖
 script:
