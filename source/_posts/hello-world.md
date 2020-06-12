@@ -37,3 +37,6 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+测试！
+最后更新时间：2020/6/12 下午5:20:00
