@@ -6,7 +6,7 @@
   <link href="/my-blog/atom.xml" rel="self"/>
   
   <link href="https://fuos.github.io/my-blog/"/>
-  <updated>2020-06-11T05:53:06.000Z</updated>
+  <updated>2020-06-15T15:56:38.000Z</updated>
   <id>https://fuos.github.io/my-blog/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用效率工具1.0</title>
+    <link href="https://fuos.github.io/my-blog/posts/df0654c7.html"/>
+    <id>https://fuos.github.io/my-blog/posts/df0654c7.html</id>
+    <published>2020-06-15T14:03:15.000Z</published>
+    <updated>2020-06-15T15:56:38.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;工作中常用的一些软件，适用于Windows平台，平时都会收藏在我的笔记本里，现。我平时发现一款软件，到最后能一直使用，大致经历的过程是这样的：&lt;/p&gt;
+&lt;p&gt;工作中常用的一些工具，以Windows上软件和Chrome插件为主，整理记录方便自己查找。我发现一款软件，到最后能长
+        
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://fuos.github.io/my-blog/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="效率" scheme="https://fuos.github.io/my-blog/tags/%E6%95%88%E7%8E%87/"/>
+    
+  </entry>
   
   <entry>
     <title>GitHub Pages+Hexo+Travis CI-自动化构建的静态博客</title>
