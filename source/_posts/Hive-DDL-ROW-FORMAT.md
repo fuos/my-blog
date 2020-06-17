@@ -17,7 +17,7 @@ tags: Hive
 
 创建表时需要指定数据切分格式，会用到ROW FORMAT关键字。下面是Hive官网关于ROW FORMAT的用法：
 
-![img](https://images2017.cnblogs.com/blog/966735/201708/966735-20170804101506459-2126568369.png)
+![hive_row_format](https://images2017.cnblogs.com/blog/966735/201708/966735-20170804101506459-2126568369.png)
 
 下面通过一个例子说明数据之间分隔符用法。比如有两条数据：
 
@@ -26,9 +26,12 @@ tags: Hive
 2,Hanmeimei,book-Lilei-code,beijing:haidian-shanghai:huangpu
 ```
 
-### 先看JAVA集合框架图，明确每个字段数据类型![img](https://images2017.cnblogs.com/blog/966735/201708/966735-20170804104511053-675912570.png)**
+### 先看JAVA集合框架图，明确每个字段数据类型
+![java集合框架](https://images2017.cnblogs.com/blog/966735/201708/966735-20170804104511053-675912570.png)
 
 ### 再看数据格式，指定分隔符
+
+限定符开始语句----------ROW FORMAT DELIMITED
 
 每个字段之间由[ , ]分割----------FIELDS TERMINATED BY ','
 
@@ -42,10 +45,10 @@ tags: Hive
 
 ```sql
 create table psn (
-id int,
-name string,
-hobbies ARRAY <string>,
-address MAP <string, string>
+id INT,
+name STRING,
+hobbies ARRAY <STRING>,
+address MAP <STRING, STRING>
 )
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
