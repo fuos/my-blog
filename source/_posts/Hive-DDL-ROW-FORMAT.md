@@ -17,7 +17,7 @@ tags: Hive
 
 创建表时需要指定数据切分格式，会用到ROW FORMAT关键字。下面是Hive官网关于ROW FORMAT的用法：
 
-![hive_row_format](https://images2017.cnblogs.com/blog/966735/201708/966735-20170804101506459-2126568369.png)
+<img src="https://images2017.cnblogs.com/blog/966735/201708/966735-20170804101506459-2126568369.png" width="80%" height="80%">
 
 下面通过一个例子说明数据之间分隔符用法。比如有两条数据：
 
