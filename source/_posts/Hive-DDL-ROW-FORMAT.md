@@ -17,7 +17,13 @@ tags: Hive
 
 创建表时需要指定数据切分格式，会用到ROW FORMAT关键字。下面是Hive官网关于ROW FORMAT的用法：
 
-<img src="https://images2017.cnblogs.com/blog/966735/201708/966735-20170804101506459-2126568369.png" width="80%" height="80%">
+```java
+row_format
+  : DELIMITED [FIELDS TERMINATED BY char [ESCAPED BY char]] [COLLECTION ITEMS TERMINATED BY char]
+        [MAP KEYS TERMINATED BY char] [LINES TERMINATED BY char]
+        [NULL DEFINED AS char]   -- (Note: Available in Hive 0.13 and later)
+  | SERDE serde_name [WITH SERDEPROPERTIES (property_name=property_value, property_name=property_value, ...)]
+```
 
 下面通过一个例子说明数据之间分隔符用法。比如有两条数据：
 
