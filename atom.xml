@@ -6,7 +6,7 @@
   <link href="/my-blog/atom.xml" rel="self"/>
   
   <link href="https://fuos.github.io/my-blog/"/>
-  <updated>2020-06-16T04:52:47.000Z</updated>
+  <updated>2020-06-17T05:16:12.000Z</updated>
   <id>https://fuos.github.io/my-blog/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PAI算法组件详解-PLDA</title>
+    <link href="https://fuos.github.io/my-blog/posts/72ac77ba.html"/>
+    <id>https://fuos.github.io/my-blog/posts/72ac77ba.html</id>
+    <published>2020-06-17T05:15:12.000Z</published>
+    <updated>2020-06-17T05:16:12.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;通过文章主题做文本分类的理论依据&quot;&gt;&lt;a href=&quot;#通过文章主题做文本分类的理论依据&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://fuos.github.io/my-blog/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="PLDA" scheme="https://fuos.github.io/my-blog/tags/PLDA/"/>
+    
+  </entry>
   
   <entry>
     <title>常用工具V1.0</title>
