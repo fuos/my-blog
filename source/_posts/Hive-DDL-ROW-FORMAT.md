@@ -27,7 +27,8 @@ tags: Hive
 ```
 
 ### 先看JAVA集合框架图，明确每个字段数据类型
-![java集合框架](https://images2017.cnblogs.com/blog/966735/201708/966735-20170804104511053-675912570.png)
+
+<img src="https://images2017.cnblogs.com/blog/966735/201708/966735-20170804104511053-675912570.png" width="80%" height="80%">
 
 ### 再看数据格式，指定分隔符
 
@@ -55,3 +56,4 @@ FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '-'
 MAP KEYS TERMINATED BY ':'; 
 ```
+
