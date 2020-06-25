@@ -21,21 +21,18 @@
     
     
     <meta name="keywords" content="Hive">
-    <meta name="description" content="HiveQL DDL语法规则 CREATE DATABASE&#x2F;SCHEMA, TABLE, VIEW, FUNCTION, INDEX（创建 数据库&#x2F;模式，表，视图，函数，索引） DROP DATABASE&#x2F;SCHEMA, TABLE, VIEW, INDEX（删除 数据库&#x2F;模式，表，视图，索引） TRUNCATE TABLE（清空 表） ALTER DATABASE&#x2F;SCHEMA, TABLE,">
+    <meta name="description" content="DDL语法规则 CREATE DATABASE&#x2F;SCHEMA, TABLE, VIEW, FUNCTION, INDEX（创建 数据库&#x2F;模式，表，视图，函数，索引） DROP DATABASE&#x2F;SCHEMA, TABLE, VIEW, INDEX（删除 数据库&#x2F;模式，表，视图，索引） TRUNCATE TABLE（清空 表） ALTER DATABASE&#x2F;SCHEMA, TABLE, VIEW（修">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hive DDL ROW FORMAT">
 <meta property="og:url" content="https://fuos.github.io/my-blog/posts/acf44460.html">
 <meta property="og:site_name" content="fuos">
-<meta property="og:description" content="HiveQL DDL语法规则 CREATE DATABASE&#x2F;SCHEMA, TABLE, VIEW, FUNCTION, INDEX（创建 数据库&#x2F;模式，表，视图，函数，索引） DROP DATABASE&#x2F;SCHEMA, TABLE, VIEW, INDEX（删除 数据库&#x2F;模式，表，视图，索引） TRUNCATE TABLE（清空 表） ALTER DATABASE&#x2F;SCHEMA, TABLE,">
+<meta property="og:description" content="DDL语法规则 CREATE DATABASE&#x2F;SCHEMA, TABLE, VIEW, FUNCTION, INDEX（创建 数据库&#x2F;模式，表，视图，函数，索引） DROP DATABASE&#x2F;SCHEMA, TABLE, VIEW, INDEX（删除 数据库&#x2F;模式，表，视图，索引） TRUNCATE TABLE（清空 表） ALTER DATABASE&#x2F;SCHEMA, TABLE, VIEW（修">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/966735/201708/966735-20170804101506459-2126568369.png">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/966735/201708/966735-20170804104511053-675912570.png">
 <meta property="article:published_time" content="2020-06-17T05:38:22.000Z">
-<meta property="article:modified_time" content="2020-06-17T07:21:22.000Z">
+<meta property="article:modified_time" content="2020-06-25T17:48:23.000Z">
 <meta property="article:author" content="fuos">
 <meta property="article:tag" content="Hive">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/966735/201708/966735-20170804101506459-2126568369.png">
     
         <link rel="alternate" type="application/atom+xml" title="fuos" href="/my-blog/atom.xml">
     
@@ -177,7 +174,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HiveQL-DDL语法规则"><span class="post-toc-number">1.</span> <span class="post-toc-text">HiveQL DDL语法规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先看JAVA集合框架图，明确每个字段数据类型"><span class="post-toc-number">2.</span> <span class="post-toc-text">先看JAVA集合框架图，明确每个字段数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#再看数据格式，指定分隔符"><span class="post-toc-number">3.</span> <span class="post-toc-text">再看数据格式，指定分隔符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#完整建表语句"><span class="post-toc-number">4.</span> <span class="post-toc-text">完整建表语句</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DDL语法规则"><span class="post-toc-number">1.</span> <span class="post-toc-text">DDL语法规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分隔符类型"><span class="post-toc-number">2.</span> <span class="post-toc-text">分隔符类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#完整建表语句"><span class="post-toc-number">3.</span> <span class="post-toc-text">完整建表语句</span></a></li></ol>
         </nav>
     </aside>
 
@@ -203,7 +200,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="HiveQL-DDL语法规则"><a href="#HiveQL-DDL语法规则" class="headerlink" title="HiveQL DDL语法规则"></a>HiveQL DDL语法规则</h3><ul>
+            <h3 id="DDL语法规则"><a href="#DDL语法规则" class="headerlink" title="DDL语法规则"></a>DDL语法规则</h3><ul>
 <li>CREATE DATABASE/SCHEMA, TABLE, VIEW, FUNCTION, INDEX（创建 数据库/模式，表，视图，函数，索引）</li>
 <li>DROP DATABASE/SCHEMA, TABLE, VIEW, INDEX（删除 数据库/模式，表，视图，索引）</li>
 <li>TRUNCATE TABLE（清空 表）</li>
@@ -212,21 +209,12 @@
 <li>SHOW DATABASES/SCHEMAS, TABLES, TBLPROPERTIES, VIEWS, PARTITIONS, FUNCTIONS, INDEX[ES], COLUMNS, CREATE TABLE（查看）</li>
 <li>DESCRIBE DATABASE/SCHEMA, table_name, view_name（查看 数据库/模式描述信息）</li>
 </ul>
-<p>创建表时需要指定数据切分格式，会用到ROW FORMAT关键字。下面是Hive官网关于ROW FORMAT的用法：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://images2017.cnblogs.com/blog/966735/201708/966735-20170804101506459-2126568369.png" alt="hive_row_format" title="">
-                </div>
-                <div class="image-caption">hive_row_format</div>
-            </figure>
-
+<p>创建表时需要指定数据切分格式，会用到ROW FORMAT关键字。可以参考Hive官网关于ROW FORMAT的用法。</p>
 <p>下面通过一个例子说明数据之间分隔符用法。比如有两条数据：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1,Lilei,book-tv-code,beijing:chaoyang-shanghai:pudong</span><br><span class="line">2,Hanmeimei,book-Lilei-code,beijing:haidian-shanghai:huangpu</span><br></pre></td></tr></table></figure>
 
-<h3 id="先看JAVA集合框架图，明确每个字段数据类型"><a href="#先看JAVA集合框架图，明确每个字段数据类型" class="headerlink" title="先看JAVA集合框架图，明确每个字段数据类型"></a>先看JAVA集合框架图，明确每个字段数据类型</h3><img src="https://images2017.cnblogs.com/blog/966735/201708/966735-20170804104511053-675912570.png" width="80%" height="80%">
-
-<h3 id="再看数据格式，指定分隔符"><a href="#再看数据格式，指定分隔符" class="headerlink" title="再看数据格式，指定分隔符"></a>再看数据格式，指定分隔符</h3><p>限定符开始语句———-ROW FORMAT DELIMITED</p>
+<p>先看JAVA集合框架图，明确每个字段数据类型，再看数据格式，指定分隔符。</p>
+<h3 id="分隔符类型"><a href="#分隔符类型" class="headerlink" title="分隔符类型"></a>分隔符类型</h3><p>限定符开始语句———-ROW FORMAT DELIMITED</p>
 <p>每个字段之间由[ , ]分割———-FIELDS TERMINATED BY ‘,’</p>
 <p>第二个字段是Array形式，元素与元素之间由[ - ]分割———-COLLECTION ITEMS TERMINATED BY ‘-‘</p>
 <p>第三个字段是K-V形式，每组K-V对内部由[ : ]分割，每组K-V对之间由[ - ]分割———-MAP KEYS TERMINATED BY ‘:’</p>
@@ -241,7 +229,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-17T07:21:22.000Z" itemprop="dateUpdated">2020-06-17 15:21:22</time>
+    最后更新时间：<time datetime="2020-06-25T17:48:23.000Z" itemprop="dateUpdated">2020-06-26 01:48:23</time>
 </span><br>
 
 
