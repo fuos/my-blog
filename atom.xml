@@ -6,7 +6,7 @@
   <link href="/my-blog/atom.xml" rel="self"/>
   
   <link href="https://fuos.github.io/my-blog/"/>
-  <updated>2020-06-26T09:33:22.000Z</updated>
+  <updated>2020-06-26T11:59:45.000Z</updated>
   <id>https://fuos.github.io/my-blog/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java多线程和锁</title>
+    <link href="https://fuos.github.io/my-blog/posts/c0c98174.html"/>
+    <id>https://fuos.github.io/my-blog/posts/c0c98174.html</id>
+    <published>2020-06-26T11:49:15.000Z</published>
+    <updated>2020-06-26T11:59:45.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;线程🔌&quot;&gt;&lt;a href=&quot;#线程🔌&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://fuos.github.io/my-blog/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://fuos.github.io/my-blog/tags/Java/"/>
+    
+      <category term="锁" scheme="https://fuos.github.io/my-blog/tags/%E9%94%81/"/>
+    
+      <category term="多线程" scheme="https://fuos.github.io/my-blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Java代码风格之常量</title>
