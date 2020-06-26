@@ -44,7 +44,7 @@ public class Constant {
 
 ### 禁用魔法值
 
-即共识层面上的常量，直接以具体的数值或字符出现在代码中。如下代码：
+魔法值即共识层面上的常量，直接以具体的数值或字符出现在代码中。如下代码：
 
 ```java
 String key = "Id#taobao_" + readeId;
