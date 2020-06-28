@@ -6,7 +6,7 @@
   <link href="/my-blog/atom.xml" rel="self"/>
   
   <link href="https://fuos.github.io/my-blog/"/>
-  <updated>2020-06-26T11:59:45.000Z</updated>
+  <updated>2020-06-28T10:21:15.000Z</updated>
   <id>https://fuos.github.io/my-blog/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>信息基础和计算方式</title>
+    <link href="https://fuos.github.io/my-blog/posts/c013043.html"/>
+    <id>https://fuos.github.io/my-blog/posts/c013043.html</id>
+    <published>2020-06-28T07:59:25.000Z</published>
+    <updated>2020-06-28T10:21:15.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;相关概念&quot;&gt;&lt;a href=&quot;#相关概念&quot; class=&quot;headerlink&quot; title=&quot;相关概念&quot;&gt;&lt;/a&gt;相关概念&lt;/h3&gt;&lt;h4 id=&quot;熵&quot;&gt;&lt;a href=&quot;#熵&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="理论" scheme="https://fuos.github.io/my-blog/categories/%E7%90%86%E8%AE%BA/"/>
+    
+    
+      <category term="信息" scheme="https://fuos.github.io/my-blog/tags/%E4%BF%A1%E6%81%AF/"/>
+    
+      <category term="熵" scheme="https://fuos.github.io/my-blog/tags/%E7%86%B5/"/>
+    
+  </entry>
   
   <entry>
     <title>Java多线程和锁</title>
