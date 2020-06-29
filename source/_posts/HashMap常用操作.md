@@ -12,7 +12,6 @@ tags: HashMap
 返回指定键所映射到的值；如果此映射不包含键的映射关系，则返回defaultValue。
 
 ```java
-
 HashMap<String, Integer> map = new HashMap<>();
 map.put("a", 200);
 
@@ -21,7 +20,6 @@ Integer k = map.getOrDefault("a", 500);
 
 // key = b 不存在，返回默认值 h = 500
 Integer h = map.getOrDefault("b", 500);
-
 ```
 
 > public V putIfAbsent(K key, V value)
@@ -29,7 +27,6 @@ Integer h = map.getOrDefault("b", 500);
 如果指定的键尚未与值关联（或映射为null），则将其与给定值关联并返回null，否则返回当前值。
 
 ```java
-
 HashMap<String, Integer> map = new HashMap<>();
 map.put("a", 200);
 map.put("e", null);
@@ -42,7 +39,6 @@ Integer h = map.putIfAbsent("e", 500);
 
 // key = a 存在，且 value != null, 则 原值不变，返回 f = 200
 Integer f = map.putIfAbsent("a", 500);
-
 ```
 
 ### HashMap四种遍历方式
