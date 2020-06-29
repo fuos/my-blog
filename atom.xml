@@ -6,7 +6,7 @@
   <link href="/my-blog/atom.xml" rel="self"/>
   
   <link href="https://fuos.github.io/my-blog/"/>
-  <updated>2020-06-28T10:37:09.000Z</updated>
+  <updated>2020-06-29T11:59:01.000Z</updated>
   <id>https://fuos.github.io/my-blog/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HashMap常用操作</title>
+    <link href="https://fuos.github.io/my-blog/posts/10a08d6a.html"/>
+    <id>https://fuos.github.io/my-blog/posts/10a08d6a.html</id>
+    <published>2020-06-29T11:56:28.000Z</published>
+    <updated>2020-06-29T11:59:01.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;HashMap带默认值操作&quot;&gt;&lt;a href=&quot;#HashMap带默认值操作&quot; class=&quot;headerlink&quot; title=&quot;HashMap带默认值操作&quot;&gt;&lt;/a&gt;HashMap带默认值操作&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;public V
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://fuos.github.io/my-blog/categories/Java/"/>
+    
+    
+      <category term="HashMap" scheme="https://fuos.github.io/my-blog/tags/HashMap/"/>
+    
+  </entry>
   
   <entry>
     <title>信息基础和计算方式</title>
