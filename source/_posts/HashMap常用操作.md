@@ -52,17 +52,16 @@ for (String key: map.keySet()) {
 //第二种: 通过Map.entrySet使用iterator遍历key和value
 Iterator < Map.Entry < String, String >> it = map.entrySet().iterator();
 while (it.hasNext()) {
-	Map.Entry < String,
-	String > entry = it.next();
+	Map.Entry < String, String > entry = it.next();
 	System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
 }
 
-//第三种: 推荐，尤其是容量大时,通过Map.entrySet遍历key和value
+//第三种: 推荐，尤其是容量大时, 通过Map.entrySet遍历key和value
 for (Map.Entry < String, String > entry: map.entrySet()) {
 	System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
 }
 
-//第四种: 通过Map.values()遍历所有的value，但不能遍历key
+//第四种: 通过Map.values()遍历所有的value, 但不能遍历key
 for (String v: map.values()) {
 	System.out.println("value= " + v);
 }
