@@ -1,8 +1,9 @@
 ---
 title: Hive DDL ROW FORMAT
-date: 2020-06-17 13:38:22
 categories: 大数据
 tags: Hive
+abbrlink: acf44460
+date: 2020-06-17 13:38:22
 ---
 
 ### DDL语法规则

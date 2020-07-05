@@ -1,8 +1,9 @@
 ---
 title: HashMap常用操作
-date: 2020-06-29 19:56:28
 categories: Java
 tags: HashMap
+abbrlink: 10a08d6a
+date: 2020-06-29 19:56:28
 ---
 
 ### HashMap带默认值操作

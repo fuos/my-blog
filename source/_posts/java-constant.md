@@ -1,8 +1,11 @@
 ---
 title: Java代码风格之常量
-date: 2020-06-26 00:37:15
 categories: Java
-tags: [Java,开发规范]
+tags:
+  - Java
+  - 开发规范
+abbrlink: ddb1142c
+date: 2020-06-26 00:37:15
 ---
 
 ### 常量命名规范

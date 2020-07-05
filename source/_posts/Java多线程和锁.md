@@ -1,8 +1,12 @@
 ---
 title: Java多线程和锁
-date: 2020-06-26 19:49:15
 categories: Java
-tags: [Java,锁,多线程]
+tags:
+  - Java
+  - 锁
+  - 多线程
+abbrlink: c0c98174
+date: 2020-06-26 19:49:15
 ---
 
 ## 线程🔌

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>信息基础和计算方式 | fuos | 开发小笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="信息,熵">
+    <meta name="description" content="相关概念熵当一件事情有多种可能情况时，这件事情对某人而言具体是哪种情况的不确定性叫做熵。 信息能够消除该人对这件事情不确定性的事物叫做信息。信息是从多个可能状态中确定实际状态所需的物理量。 两者关系熵和信息的关系：数量相等，意义相反。获取信息 &#x3D; 消除熵。 噪音 和 数据那些不能够消除某人对某件事情不确定性的事物被称为数据或噪音。噪音是干扰某人获取信息的事物，数据是噪音和信息的混合，需要用知识将其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息基础和计算方式">
+<meta property="og:url" content="https://fuos.github.io/my-blog/posts/c013043.html">
+<meta property="og:site_name" content="fuos">
+<meta property="og:description" content="相关概念熵当一件事情有多种可能情况时，这件事情对某人而言具体是哪种情况的不确定性叫做熵。 信息能够消除该人对这件事情不确定性的事物叫做信息。信息是从多个可能状态中确定实际状态所需的物理量。 两者关系熵和信息的关系：数量相等，意义相反。获取信息 &#x3D; 消除熵。 噪音 和 数据那些不能够消除某人对某件事情不确定性的事物被称为数据或噪音。噪音是干扰某人获取信息的事物，数据是噪音和信息的混合，需要用知识将其">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-28T07:59:25.000Z">
+<meta property="article:modified_time" content="2020-07-05T12:12:04.311Z">
+<meta property="article:author" content="fuos">
+<meta property="article:tag" content="信息">
+<meta property="article:tag" content="熵">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fuos" href="/my-blog/atom.xml">
+    
+    <link rel="shortcut icon" href="/my-blog/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/my-blog/img/brand.jpg)">
+      <div class="brand">
+        <a href="/my-blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/my-blog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">fuos</h5>
+          <a href="mailto:zkkio@outlook.com" title="zkkio@outlook.com" class="mail">zkkio@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/my-blog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/my-blog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/my-blog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/my-blog/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/fuos" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.weibo.com/SuperNPC" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://travis-ci.org/github/fuos/my-blog" target="_blank" rel="noopener"  >
+                <i class="icon icon-lg icon-link"></i>
+                Build Status
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">信息基础和计算方式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">信息基础和计算方式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-06-28T07:59:25.000Z" itemprop="datePublished" class="page-time">
+  2020-06-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/my-blog/categories/%E7%90%86%E8%AE%BA/">理论</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相关概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">相关概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#熵"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">熵</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#信息"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#两者关系"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">两者关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#噪音-和-数据"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">噪音 和 数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#概率-和-熵-的区别"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">概率 和 熵 的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#信息的计算"><span class="post-toc-number">2.</span> <span class="post-toc-text">信息的计算</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参照事件"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">参照事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如何计算"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">如何计算</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#等概率"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">等概率</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#非等概率"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">非等概率</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-amount-of-information"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">信息基础和计算方式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-06-28 15:59:25" datetime="2020-06-28T07:59:25.000Z"  itemprop="datePublished">2020-06-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/my-blog/categories/%E7%90%86%E8%AE%BA/">理论</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><h4 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h4><p>当一件事情有多种可能情况时，这件事情对某人而言具体是哪种情况的不确定性叫做<strong>熵</strong>。</p>
+<h4 id="信息"><a href="#信息" class="headerlink" title="信息"></a>信息</h4><p>能够消除该人对这件事情不确定性的事物叫做<strong>信息</strong>。信息是从多个可能状态中确定实际状态所需的<strong>物理量</strong>。</p>
+<h4 id="两者关系"><a href="#两者关系" class="headerlink" title="两者关系"></a>两者关系</h4><p>熵和信息的关系：数量相等，意义相反。获取信息 = 消除熵。</p>
+<h4 id="噪音-和-数据"><a href="#噪音-和-数据" class="headerlink" title="噪音 和 数据"></a>噪音 和 数据</h4><p>那些不能够消除某人对某件事情不确定性的事物被称为数据或噪音。噪音是干扰某人获取信息的事物，数据是噪音和信息的混合，需要用知识将其分离。</p>
+<h4 id="概率-和-熵-的区别"><a href="#概率-和-熵-的区别" class="headerlink" title="概率 和 熵 的区别"></a>概率 和 熵 的区别</h4><p>概率是某件事情某个可能情况的确定性，熵是某件事情到底是哪种情况的不确定性。</p>
+<h3 id="信息的计算"><a href="#信息的计算" class="headerlink" title="信息的计算"></a>信息的计算</h3><p>信息是一个物理量，信息消除的是事件的不确定性。可以选择一个事件的不确定性作为参照，当想要测量其他事件的不确定性时，就看待测事件的不确定性相当于<em>多少个</em>参照事件的不确定性。这里的<em>多少个</em>就是信息量。</p>
+<h4 id="参照事件"><a href="#参照事件" class="headerlink" title="参照事件"></a>参照事件</h4><p>在这里<em>只考虑等概率事件</em>，即单个事件相互独立，概率相等。选择的参照事件不同，测量的信息量不同，对应的单位也不同，下面是常见的几种单位：</p>
+<p>（Ⅰ）如果参照事件只有2种等概率情况，那么测得的信息量的单位被称作 bit。（比如：抛硬币，只有正反两种情况，且概率相等，50%）</p>
+<p>（Ⅱ）如果参照事件有10种等概率情况，那么测得的信息量的单位被称作ban。（比如：抛一个正10面体🎲，有10种情况，且每种情况概率相等，10%）</p>
+<p>（Ⅲ）如果参照事件有e种等概率情况，那么测得的信息量的单位被称作nat。（类推，有e种等概率发生情况，每种情况发生的概率为 1/e）</p>
+<h4 id="如何计算"><a href="#如何计算" class="headerlink" title="如何计算"></a>如何计算</h4><p>下面通过例子来分析如何计算上面提到的<em>多少个</em>问题，这个值就是信息量。分两种情况：</p>
+<p>（Ⅰ）被测事件不确定性的所有可能情况<em>等概率</em></p>
+<p>（Ⅱ）被测事件不确定性的所有可能情况<em>非等概率</em></p>
+<h4 id="等概率"><a href="#等概率" class="headerlink" title="等概率"></a>等概率</h4><p>假如，有一道单项选择题，提供ABCD四个选项，在不知道正确答案的情况下，四个选项对我们而言就是<em>四种不确定性</em>，不确定是ABCD中的哪一项。如果我们以抛硬币作为参照事件（最终计算的信息量单位为bit），等概率的<em>四种不确定情况</em>相当于一次抛出<strong>2</strong>枚硬币，那么我们就可以说：我们对这道题答案是ABCD中哪一项的不确定性为2bits。</p>
+<p>如果，这道单项选择题有ABCDEFGH八个选项，在不知道正确答案的情况下，他就有<em>八种不确定情况</em>，还是以抛硬币作为参照事件，那么相当于一次抛出<strong>3</strong>枚硬币（2^3=8），所以对这道题选项是哪一个的不确定性就是3bits。</p>
+<p>从上面可以看出，待测事件不确定情况的个数（m） 与 参照事件不确定情况的个数（n） 是<em>指数关系</em>进行累积的，表示为：3 = log_2 8，我们用m和n表示，那么上面两种情况信息量计算公式为：n = log_2 m，这里n就是<em>参照</em>事件为两种等概率情况下不确定性的<em>个数</em>，<strong>信息量</strong>。</p>
+<p>选择其他参照事件推演逻辑相同，计算所得信息量相同，只是单位不同而已，即实际客观存在的信息量是一样的（可以理解为1000g和1kg单位不同，实际客观存在的质量相同）。</p>
+<h4 id="非等概率"><a href="#非等概率" class="headerlink" title="非等概率"></a>非等概率</h4><p>非等概率情况，需要分别测量待测事件每种可能情况下的信息量，再乘以他们各自发生的概率，最后相加得到的值即为总信息量。</p>
+<p>假如，有一道单选题，提供ABCD四个选项，当被告知C选项有50%概率是正确答案时，信息量的计算方式为：</p>
+<p>1/6 * log_2 6/1 + 1/6 * log_2 6/1 + 1/2 * log_2 2/1 + 1/6 * log_2 1/6 = 1.79 bits</p>
+<p>参考：<a href="https://www.zhihu.com/people/YJango" target="_blank" rel="noopener">YJango</a>    《学习观》 </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-07-05T12:12:04.311Z" itemprop="dateUpdated">2020-07-05 20:12:04</time>
+</span><br>
+
+
+        
+        本文永久链接：<a href="/my-blog/posts/c013043.html" target="_blank" rel="external">https://fuos.github.io/my-blog/posts/c013043.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://fuos.github.io/my-blog">
+            <img src="/my-blog/img/avatar.jpg" alt="fuos">
+            fuos
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/my-blog/tags/%E4%BF%A1%E6%81%AF/" rel="tag">信息</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/my-blog/tags/%E7%86%B5/" rel="tag">熵</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://fuos.github.io/my-blog/posts/c013043.html&title=《信息基础和计算方式》 — fuos&pic=https://fuos.github.io/my-blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://fuos.github.io/my-blog/posts/c013043.html&title=《信息基础和计算方式》 — fuos&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://fuos.github.io/my-blog/posts/c013043.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《信息基础和计算方式》 — fuos&url=https://fuos.github.io/my-blog/posts/c013043.html&via=https://fuos.github.io/my-blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://fuos.github.io/my-blog/posts/c013043.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/my-blog/posts/10a08d6a.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HashMap常用操作</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/my-blog/posts/c0c98174.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java多线程和锁</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'e565ffa137248f19fe25',
+          clientSecret: 'a449b4aa974f12d27bdf3ccd4c7bcab87fd51ff5',
+          repo: 'my-blog',
+          owner: 'fuos',
+          admin: ['fuos'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果觉得文章对您有用，请打赏二两银子~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/my-blog/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/my-blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>fuos &copy; 2020</span>
+            <span>
+                
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://fuos.github.io/my-blog/posts/c013043.html&title=《信息基础和计算方式》 — fuos&pic=https://fuos.github.io/my-blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://fuos.github.io/my-blog/posts/c013043.html&title=《信息基础和计算方式》 — fuos&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://fuos.github.io/my-blog/posts/c013043.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《信息基础和计算方式》 — fuos&url=https://fuos.github.io/my-blog/posts/c013043.html&via=https://fuos.github.io/my-blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://fuos.github.io/my-blog/posts/c013043.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://fuos.github.io/my-blog/posts/c013043.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/my-blog/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

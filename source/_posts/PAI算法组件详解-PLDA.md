@@ -1,8 +1,9 @@
 ---
 title: PAI算法组件详解-PLDA
-date: 2020-06-17 13:15:12
 categories: 算法
 tags: PLDA
+abbrlink: 72ac77ba
+date: 2020-06-17 13:15:12
 ---
 
 ### 通过文章主题做文本分类的理论依据
