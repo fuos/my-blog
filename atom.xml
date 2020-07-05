@@ -6,7 +6,7 @@
   <link href="/my-blog/atom.xml" rel="self"/>
   
   <link href="https://fuos.github.io/my-blog/"/>
-  <updated>2020-06-30T02:11:26.000Z</updated>
+  <updated>2020-07-05T11:35:29.000Z</updated>
   <id>https://fuos.github.io/my-blog/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>决策树构造原理</title>
+    <link href="https://fuos.github.io/my-blog/posts/257cbae6.html"/>
+    <id>https://fuos.github.io/my-blog/posts/257cbae6.html</id>
+    <published>2020-07-05T04:34:03.000Z</published>
+    <updated>2020-07-05T11:35:29.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Hexo插入图片测试&quot;&gt;&lt;a href=&quot;#Hexo插入图片测试&quot; class=&quot;headerlink&quot; title=&quot;Hexo插入图片测试&quot;&gt;&lt;/a&gt;Hexo插入图片测试&lt;/h3&gt;&lt;p&gt;在Hexo中插入图片，可以通过将
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://fuos.github.io/my-blog/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="决策树" scheme="https://fuos.github.io/my-blog/tags/%E5%86%B3%E7%AD%96%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>HashMap常用操作</title>

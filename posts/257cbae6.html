@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>决策树构造原理 | fuos | 开发小笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="决策树">
+    <meta name="description" content="Hexo插入图片测试在Hexo中插入图片，可以通过将 config.yml 文件中的 post_asset_folder 选项设为 true 来打开。 决策树模型决策树是一种非常受欢迎的分类和预测工具，本文主要讨论用于分类的决策树，如结果是Yes or No，或者属于ABC哪种类别等非连续，离散型预测。决策树是一个树状结构的流程图，由下面几个元素构成，通过一幅图说明：   非叶子节点（内部节点）：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="决策树构造原理">
+<meta property="og:url" content="https://fuos.github.io/my-blog/posts/257cbae6.html">
+<meta property="og:site_name" content="fuos">
+<meta property="og:description" content="Hexo插入图片测试在Hexo中插入图片，可以通过将 config.yml 文件中的 post_asset_folder 选项设为 true 来打开。 决策树模型决策树是一种非常受欢迎的分类和预测工具，本文主要讨论用于分类的决策树，如结果是Yes or No，或者属于ABC哪种类别等非连续，离散型预测。决策树是一个树状结构的流程图，由下面几个元素构成，通过一幅图说明：   非叶子节点（内部节点）：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:/hexoblog2020/zkkio-hexo-blog/source/_posts/决策树构造原理/0_BPJmRBetqRAagjjq.png">
+<meta property="og:image" content="e:/hexoblog2020/zkkio-hexo-blog/source/_posts/决策树构造原理/PlayTennis.png">
+<meta property="og:image" content="e:/hexoblog2020/zkkio-hexo-blog/source/_posts/决策树构造原理/img04.png">
+<meta property="og:image" content="e:/hexoblog2020/zkkio-hexo-blog/source/_posts/决策树构造原理/img02.png">
+<meta property="og:image" content="e:/hexoblog2020/zkkio-hexo-blog/source/_posts/决策树构造原理/img03.png">
+<meta property="article:published_time" content="2020-07-05T04:34:03.000Z">
+<meta property="article:modified_time" content="2020-07-05T11:35:29.000Z">
+<meta property="article:author" content="fuos">
+<meta property="article:tag" content="决策树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:/hexoblog2020/zkkio-hexo-blog/source/_posts/决策树构造原理/0_BPJmRBetqRAagjjq.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="fuos" href="/my-blog/atom.xml">
+    
+    <link rel="shortcut icon" href="/my-blog/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/my-blog/img/brand.jpg)">
+      <div class="brand">
+        <a href="/my-blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/my-blog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">fuos</h5>
+          <a href="mailto:zkkio@outlook.com" title="zkkio@outlook.com" class="mail">zkkio@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/my-blog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/my-blog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/my-blog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/my-blog/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/fuos" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.weibo.com/SuperNPC" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://travis-ci.org/github/fuos/my-blog" target="_blank" rel="noopener"  >
+                <i class="icon icon-lg icon-link"></i>
+                Build Status
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">决策树构造原理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">决策树构造原理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-07-05T04:34:03.000Z" itemprop="datePublished" class="page-time">
+  2020-07-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/my-blog/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hexo插入图片测试"><span class="post-toc-number">1.</span> <span class="post-toc-text">Hexo插入图片测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#决策树模型"><span class="post-toc-number">2.</span> <span class="post-toc-text">决策树模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#决策树生成"><span class="post-toc-number">3.</span> <span class="post-toc-text">决策树生成</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#信息增益"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">信息增益</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#特征作用前的熵-（经验熵）"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">特征作用前的熵 （经验熵）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#特征作用后的熵"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">特征作用后的熵</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ID3计算过程"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">ID3计算过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#确定哪一个特征做根节点"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">确定哪一个特征做根节点</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#接下来计算第二个节点"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">接下来计算第二个节点</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展（待补充）"><span class="post-toc-number">4.</span> <span class="post-toc-text">扩展（待补充）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#剪枝（待补充）"><span class="post-toc-number">5.</span> <span class="post-toc-text">剪枝（待补充）</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-决策树构造原理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">决策树构造原理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-07-05 12:34:03" datetime="2020-07-05T04:34:03.000Z"  itemprop="datePublished">2020-07-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/my-blog/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Hexo插入图片测试"><a href="#Hexo插入图片测试" class="headerlink" title="Hexo插入图片测试"></a>Hexo插入图片测试</h3><p>在Hexo中插入图片，可以通过将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
+<h3 id="决策树模型"><a href="#决策树模型" class="headerlink" title="决策树模型"></a>决策树模型</h3><p>决策树是一种非常受欢迎的分类和预测工具，本文主要讨论用于分类的决策树，如结果是Yes or No，或者属于ABC哪种类别等<em>非连续，离散型</em>预测。决策树是一个树状结构的流程图，由下面几个元素构成，通过一幅图说明：</p>
+<img src="E:\hexoblog2020\zkkio-hexo-blog\source\_posts\决策树构造原理\0_BPJmRBetqRAagjjq.png" alt="0_BPJmRBetqRAagjjq" style="zoom:80%;" />
+
+<p>非叶子节点（内部节点）：表示在一个特征或属性，如上图中Outlook，Humidity，wind</p>
+<p>分支：表示特征或属性在值域上的一个结果，如天气的Sunny，Overcast，Rain</p>
+<p>叶子节点（终端节点）：决策的结果，拥有一个分类标签，如上图中YES/NO</p>
+<h3 id="决策树生成"><a href="#决策树生成" class="headerlink" title="决策树生成"></a>决策树生成</h3><p>构造的基本思想是随着树深度的增加，内部节点的熵迅速降低（分裂后子集就越”纯”），越快越好，这样能使树的高度最矮。</p>
+<p>下面通过一个例子构造出决策树，重点是记录实现过程</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="E:\hexoblog2020\zkkio-hexo-blog\source\_posts\决策树构造原理\PlayTennis.png" alt="PlayTennis" title="">
+                </div>
+                <div class="image-caption">PlayTennis</div>
+            </figure>
+
+<p>假设在上面的数据集E中，有4中类别的数据用ABCD顺序表示，下面说明如何使用ID3算法选择数据集中哪个特征作为第一个节点，首先说明用到的几个概念：</p>
+<h4 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h4><p>信息熵表示的是不确定度。均匀分布时，不确定度最大，此时熵就最大。当选择某个特征对数据集进行分类时，分类后的数据集信息熵会比分类前的小，其差值表示为<code>信息增益</code>。信息增益可以衡量<u>某个特征对分类结果的影响</u>大小。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="E:\hexoblog2020\zkkio-hexo-blog\source\_posts\决策树构造原理\img04.png" alt="img04" title="">
+                </div>
+                <div class="image-caption">img04</div>
+            </figure>
+
+<h4 id="特征作用前的熵-（经验熵）"><a href="#特征作用前的熵-（经验熵）" class="headerlink" title="特征作用前的熵 （经验熵）"></a>特征作用前的熵 （经验熵）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="E:\hexoblog2020\zkkio-hexo-blog\source\_posts\决策树构造原理\img02.png" alt="img02" title="">
+                </div>
+                <div class="image-caption">img02</div>
+            </figure>
+
+<h4 id="特征作用后的熵"><a href="#特征作用后的熵" class="headerlink" title="特征作用后的熵"></a>特征作用后的熵</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="E:\hexoblog2020\zkkio-hexo-blog\source\_posts\决策树构造原理\img03.png" alt="img03" title="">
+                </div>
+                <div class="image-caption">img03</div>
+            </figure>
+
+<h4 id="ID3计算过程"><a href="#ID3计算过程" class="headerlink" title="ID3计算过程"></a>ID3计算过程</h4><p>上面的数据集在没有任何特征作用下，只通过观察是否去打球的概率计算的<code>熵</code>(经验熵)为：</p>
+<p>H(E)  = -(9/14)log_2(9/14)-(5/14)log_2(5/14) = 0.940</p>
+<h5 id="确定哪一个特征做根节点"><a href="#确定哪一个特征做根节点" class="headerlink" title="确定哪一个特征做根节点"></a>确定哪一个特征做根节点</h5><p>我们需要分别计算在已知的4种特征情况下，是否打球的熵值都为多少，这样能区分每个特征对结果的重要性。首先计算如果<strong>outlook</strong>在不同取值时打球和不打球的熵值：</p>
+<p>outlook = sunny –&gt; 共5次，2次打球，3次不打球。熵 ：-(2/5)log_2(2/5)-(3/5)log_2(3/5) = 0.971 </p>
+<p>outlook = overcost –&gt; 共4次，都去打球了， 熵：-(1)log_2(1) = 0</p>
+<p>outlook = rainy –&gt; 共5次，3次打球，2次没去。熵：-(3/5)log_2(3/5)-(2/5)log_2(2/5) = 0.971</p>
+<p>🏐所以当已知outlook的情况下，打球的不确定性，即特征作用后的熵为：5/14 * 0.971 + 4/14 * 0 + 5/14 * 0.971 = 0.693</p>
+<p>根据公式计算出 信息增益 （gain）为 ： g(E, A) = 0.940 - 0.693 = 0.247。</p>
+<p>同理可得已知其他特征时计算的熵值：g(E, B) = 0.029    g(E, C) = 0.152    g(E, D) = 0.048</p>
+<p>结论：g(E, A) 最大，说明使用特征A能使系统的熵下降最快，所以第一个节点（根节点）就选择<code>outlook</code></p>
+<h5 id="接下来计算第二个节点"><a href="#接下来计算第二个节点" class="headerlink" title="接下来计算第二个节点"></a>接下来计算第二个节点</h5><p>在BCD三个特征下，计算系统的熵， 和每个特征作为已知条件下的熵，最终得到信息增益，选择最大的作为第二个节点。</p>
+<p>以此类推到系统熵下<code>降为0</code>结束构造。</p>
+<p>上面这种通过信息增益选择特征构造决策树的方式就是ID3算法。</p>
+<h3 id="扩展（待补充）"><a href="#扩展（待补充）" class="headerlink" title="扩展（待补充）"></a>扩展（待补充）</h3><p>C4.5 – 信息增益率</p>
+<p>CART – </p>
+<h3 id="剪枝（待补充）"><a href="#剪枝（待补充）" class="headerlink" title="剪枝（待补充）"></a>剪枝（待补充）</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-07-05T11:35:29.000Z" itemprop="dateUpdated">2020-07-05 19:35:29</time>
+</span><br>
+
+
+        
+        本文永久链接：<a href="/my-blog/posts/257cbae6.html" target="_blank" rel="external">https://fuos.github.io/my-blog/posts/257cbae6.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://fuos.github.io/my-blog">
+            <img src="/my-blog/img/avatar.jpg" alt="fuos">
+            fuos
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/my-blog/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://fuos.github.io/my-blog/posts/257cbae6.html&title=《决策树构造原理》 — fuos&pic=https://fuos.github.io/my-blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://fuos.github.io/my-blog/posts/257cbae6.html&title=《决策树构造原理》 — fuos&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://fuos.github.io/my-blog/posts/257cbae6.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《决策树构造原理》 — fuos&url=https://fuos.github.io/my-blog/posts/257cbae6.html&via=https://fuos.github.io/my-blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://fuos.github.io/my-blog/posts/257cbae6.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/my-blog/posts/10a08d6a.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HashMap常用操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'e565ffa137248f19fe25',
+          clientSecret: 'a449b4aa974f12d27bdf3ccd4c7bcab87fd51ff5',
+          repo: 'my-blog',
+          owner: 'fuos',
+          admin: ['fuos'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果觉得文章对您有用，请打赏二两银子~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/my-blog/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/my-blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>fuos &copy; 2020</span>
+            <span>
+                
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://fuos.github.io/my-blog/posts/257cbae6.html&title=《决策树构造原理》 — fuos&pic=https://fuos.github.io/my-blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://fuos.github.io/my-blog/posts/257cbae6.html&title=《决策树构造原理》 — fuos&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://fuos.github.io/my-blog/posts/257cbae6.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《决策树构造原理》 — fuos&url=https://fuos.github.io/my-blog/posts/257cbae6.html&via=https://fuos.github.io/my-blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://fuos.github.io/my-blog/posts/257cbae6.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://fuos.github.io/my-blog/posts/257cbae6.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/my-blog/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
